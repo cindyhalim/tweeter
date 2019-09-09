@@ -1,0 +1,28 @@
+nav {
+  background-color: #4056A1;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+nav > span {
+  padding: 1.5em;
+}
+
+.logo {
+ font-family: 'Bungee', cursive;
+}
+
+.arrow {
+  display: block;
+  text-align: center;
+  color: red;
+  margin-top: 5px;
+}

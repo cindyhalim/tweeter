@@ -1,0 +1,33 @@
+
+textarea {
+  font-weight: bold;
+  outline: none;
+  border: none;
+  background: none;
+  resize: none;
+  width: 100%;
+  border-spacing: 1px;
+  border-bottom: 5px solid #545149; 
+}
+
+textarea:focus {
+  color: #545149;
+}
+
+
+.tweet-button {
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  border: 0;
+  text-align: center;
+  margin-top: 1em;
+  padding: 5px 10px;
+  color: white;
+}
+
+.counter {
+  margin-top: 1em;
+  position: relative;
+  float: right;
+  font-family: 'Bungee', cursive;
+}
