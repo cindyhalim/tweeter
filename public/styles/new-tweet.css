@@ -1,5 +1,5 @@
 
-textarea {
+.new-tweet textarea {
   font-weight: bold;
   outline: none;
   border: none;
@@ -11,12 +11,11 @@ textarea {
   border-bottom: 5px solid #545149; 
 }
 
-textarea:focus {
+.new-tweet textarea:focus {
   color: #545149;
 }
 
-
-.tweet-button {
+.new-tweet .tweet-button {
   font-family: 'Bungee', cursive;
   background-color: #4056A1;
   border: 0;
@@ -26,9 +25,13 @@ textarea:focus {
   color: white;
 }
 
-.counter {
+.new-tweet .counter {
   margin-top: 1em;
   position: relative;
   float: right;
   font-family: 'Bungee', cursive;
+}
+
+.new-tweet .overMax {
+  color: red;
 }

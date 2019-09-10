@@ -9,18 +9,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-}
-
-nav > span {
+  font-weight: 300;
   padding: 1.5em;
 }
 
-.logo {
+nav .logo {
  font-family: 'Bungee', cursive;
 }
 
-.arrow {
+nav .arrow {
   display: block;
   text-align: center;
   color: red;

@@ -1,12 +1,16 @@
 $(document).ready(() => {
-  const maxLength = parseInt($('.counter').text());
-  $('textarea').on('keyup', () => {
-    let charTyped = $('textarea').val().length
-    $('.counter').text(maxLength - charTyped);
+  const maxLength = 140;
+  const $counter = $(".new-tweet .counter");
+
+  $(".counter").text(maxLength);
+
+  $('textarea').on('keyup', function() {
+    const charTyped = $(this).val().length;
+    $counter.text(maxLength - charTyped);
     if (charTyped > maxLength) {
-      $('.counter').css('color', 'red');
+      $counter.addClass('overMax');
     } else {
-      $('.counter').css('color', ' #545149');
+      $counter.removeClass('overMax');
     }
   });
 })
