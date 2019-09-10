@@ -6,6 +6,7 @@ textarea {
   background: none;
   resize: none;
   width: 100%;
+  height: 60px;
   border-spacing: 1px;
   border-bottom: 5px solid #545149; 
 }
