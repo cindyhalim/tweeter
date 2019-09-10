@@ -47,6 +47,12 @@ const escape = (str) => {
   return div.innerHTML;
 };
 
+const calculateDaysAgo = (date) => {
+  let today = new Date();
+  let timestampToday = today.getTime();
+  return Math.floor(Math.abs((timestampToday - date)/(1000 * 60 * 60 * 24)));
+}
+
 const createTweetElement = (data) => {
   return `<article class="tweet">
   <header>
@@ -60,7 +66,7 @@ const createTweetElement = (data) => {
   <h3>${escape(data.content.text)}</h3>
 
   <footer>
-    <p>${escape(new Date(data['created_at']))}</p>
+    <p>${escape(calculateDaysAgo(data['created_at']))} days ago</p>
     <div class="action-icons">
       <i class="fas fa-flag"></i>
       <i class="fas fa-retweet"></i>
