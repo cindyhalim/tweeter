@@ -23,3 +23,7 @@ nav .arrow {
   color: red;
   margin-top: 5px;
 }
+
+.arrow {
+  cursor: pointer;
+}

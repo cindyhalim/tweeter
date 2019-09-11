@@ -88,4 +88,6 @@ const addTweet = async () => {
   renderTweets(response[response.length - 1]);
 }
 
-
+$('.arrow').on('click', () => {
+  $('.new-tweet').slideToggle();
+});
