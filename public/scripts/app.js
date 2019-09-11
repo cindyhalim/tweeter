@@ -4,38 +4,16 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
 const renderTweets = (tweets) => {
-  for (let item of tweets) {
-    const $tweetElement = createTweetElement(item);
-    $(document).ready(() => {
-      $('#tweets-container').append($tweetElement);
-    });
+  if (Array.isArray(tweets)) {
+    for (let item of tweets) {
+      const $tweetElement = createTweetElement(item);
+      $('#tweets-container').prepend($tweetElement);
+    }
+  } else {
+    $('#tweets-container').prepend(createTweetElement(tweets));
   }
+
 };
 
 //CREATE TWEET ELEMENT
@@ -50,7 +28,7 @@ const escape = (str) => {
 const calculateDaysAgo = (date) => {
   let today = new Date();
   let timestampToday = today.getTime();
-  return Math.floor(Math.abs((timestampToday - date)/(1000 * 60 * 60 * 24)));
+  return Math.floor(Math.abs((timestampToday - date) / (1000 * 60 * 60 * 24)));
 }
 
 const createTweetElement = (data) => {
@@ -76,4 +54,38 @@ const createTweetElement = (data) => {
 </article>`;
 };
 
-renderTweets(data);
+
+$('form').submit(function (event) {
+  event.preventDefault();
+  const text = $('textarea').val();
+  if (!text) {
+    alert('Please enter text');
+  } else if (text.length > 140) {
+    alert('Tweet is too long')
+  } else {
+    $.ajax('/tweets', { method: 'POST', data: $('.tweet-text').serialize() })
+    .then(addTweet());
+  }
+})
+
+
+//fetching tweets from '/tweets'
+const loadTweets = async () => {
+  const response = await $.ajax({
+    url: '/tweets',
+    type: 'GET'
+  });
+  renderTweets(response);
+}
+
+loadTweets();
+
+const addTweet = async () => {
+  const response = await $.ajax({
+    url: '/tweets',
+    type: 'GET'
+  });
+  renderTweets(response[response.length - 1]);
+}
+
+
