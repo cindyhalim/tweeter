@@ -1,4 +1,6 @@
-
+.new-tweet {
+  margin: 3em 0;
+}
 .new-tweet textarea {
   font-weight: bold;
   outline: none;
@@ -34,4 +36,12 @@
 
 .new-tweet .overMax {
   color: red;
+}
+
+.new-tweet .error {
+  color: red;
+  padding: 0.5em;
+  border: 2px solid red;
+  display: none;
+  font-size: 30px;
 }

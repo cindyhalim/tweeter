@@ -48,10 +48,12 @@
     </div>
   </header>
 
+  <i id= "move-to-top-arrow" class="fas fa-angle-double-up fa-s"></i>
+
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <p class="error"></p>
       <form method="POST" action="/tweets" enctype="application/x-www-form-urlencoded">
         <textarea name="text" placeholder="What are you humming about?" class="tweet-text"></textarea>
         <input type="submit" value="Tweet" class="tweet-button">
