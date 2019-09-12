@@ -35,7 +35,7 @@ main {
 #move-to-top-arrow {
   background-color: #ed3b0e;
   border-radius: 50%;
-  padding: 30px;
+  padding: 40px;
   color: white;
   cursor: pointer;
   position: fixed;

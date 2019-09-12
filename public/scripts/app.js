@@ -18,7 +18,7 @@ const renderTweets = (tweets) => {
   }
 };
 
-  //CREATE TWEET ELEMENT
+//CREATE TWEET ELEMENT
 
 //escape function takes care of cross-side scripting
 const escape = (str) => {
@@ -99,7 +99,7 @@ $('form').submit(function (event) {
   } else {
     if ($('p').hasClass('error')) {
       $('.error').slideUp();
-    }
+    };
     $.ajax('/tweets', { method: 'POST', data: $('.tweet-text').serialize() })
       .then(() => addTweet());
     $('textarea').val('');
@@ -115,13 +115,20 @@ $('.arrow').on('click', () => {
 });
 
 $('#move-to-top-arrow').on('click', () => {
-  $('html, body').animate({ scrollTop: 0 }, 200);
+  $('.new-tweet').slideDown();
+  $('html, body').animate({ scrollTop: 0 }, 100);
 });
 
-$('window').scroll(() => {
-  $('#move-to-top-arrow').show();
-})
-
-
-
-
+$(document).scroll(function () {
+  const $writeTweet = $('.write-tweet');
+  const $toTopArrow = $('#move-to-top-arrow')
+  var y = $(this).scrollTop();
+  if (y > 200) {
+    $toTopArrow.fadeIn();
+    $writeTweet.hide();
+  } else {
+    $toTopArrow.fadeOut();
+    $writeTweet.show();
+    $writeTweet.select();
+  }
+});

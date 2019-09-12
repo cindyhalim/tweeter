@@ -22,8 +22,12 @@ nav .arrow {
   text-align: center;
   color: red;
   margin-top: 5px;
+  cursor: pointer;
+  animation: moveUpDown 0.55s infinite;
 }
 
-.arrow {
-  cursor: pointer;
+
+@keyframes moveUpDown {
+ 0%   {transform: translate(0, 5px)};
+ 100% {transform: translate(5px, 0)};
 }
