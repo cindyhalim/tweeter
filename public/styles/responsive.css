@@ -1,40 +1,24 @@
-
-@media screen and (min-width: 1024px) {
-
+@media only screen and (min-width: 1024px) {
   body {
     display: grid;
-    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
   }
   
-  nav {
-  background-color: #4056A1;
-  }
-
   .main-header {
-    padding-top: 2.5em;
-    margin: 30% 15%;
+    padding-top: 2em;
+    margin: 160px 15%;
     width: inherit;
-    height: 500px;
-    
+    height: 450px;
+  }
+  
+  .tweet {
+    max-width: 950px;
   }
 
   .container {
+    grid-area: 1/2/2/3;
     margin: 120px 0 30px;
     height: 100%;
   }
-
 }
-/* 
-@media screen and (min-width: 1024px) {
-  body {
-    grid-template-columns: repeat(3, 0.5fr);
-  }
-
-  .container {
-    
-  }
-
-
-} */
-

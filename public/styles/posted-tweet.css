@@ -2,14 +2,21 @@
   margin: 2em 0;
   padding: 0 1em;
   border: 5px solid #545149;
-  font-size: 30px;
+  font-size: 20px;
   overflow-wrap: break-word;
-
 }
+
 .tweet > header {
-  font-weight: 300;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+}
+
+.tweet .user-info {
+  margin :0;
+  padding: 1em 0;
+  display: flex;
   align-items: center;
 }
 
@@ -21,24 +28,18 @@
 .tweet .user-info .username {
   margin-left: 20px;
 }
-.tweet .user-info {
-  margin :0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
 
 .tweet .handle  {
-  display: none;
   color: #b5b4d9;
+  display: none;
 }
 
 .tweet > footer {
-  border-top: 5px solid #545149;
-  font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 5px solid #545149;
+  font-size: 18px;
 }
  
 .tweet .action-icons {
@@ -47,6 +48,7 @@
   display: none;
 }
 
+/* HOVER STATE */
 .tweet:hover {
   box-shadow: 10px 10px #b5b4d9;
 }
@@ -54,7 +56,6 @@
 .tweet:hover .handle {
   display: flex;
 }
-
 
 .tweet:hover .action-icons {
   display: inline;

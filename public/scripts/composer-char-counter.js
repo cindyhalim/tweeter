@@ -1,8 +1,8 @@
 $(document).ready(() => {
   const maxLength = 140;
   const $counter = $(".new-tweet .counter");
-  const $textarea = $('textarea');
-  $(".counter").text(maxLength);
+  const $textarea = $('.tweet-text');
+  $counter.text(maxLength);
 
  $textarea.on('keyup', function() {
     const charTyped = $(this).val().length;

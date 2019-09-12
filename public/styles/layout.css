@@ -33,14 +33,14 @@ main {
 }
 
 #move-to-top-arrow {
-  background-color: #ed3b0e;
-  border-radius: 50%;
-  padding: 40px;
-  color: white;
-  cursor: pointer;
+  padding: 25px;
   position: fixed;
   right: 30px;
   bottom: 30px;
   z-index: 1;
+  background-color: #ed3b0e;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
   display: none;
 }

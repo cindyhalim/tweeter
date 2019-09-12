@@ -7,19 +7,20 @@
 //FUNCTIONS
 
 const renderTweets = (tweets) => {
+  const $tweetsContainer = $('#tweets-container');
   if (Array.isArray(tweets)) {
     for (let item of tweets) {
       const $tweetElement = createTweetElement(item);
-      $('#tweets-container').prepend($tweetElement);
+      $tweetsContainer.prepend($tweetElement);
     }
   } else {
-    $('#tweets-container').prepend(createTweetElement(tweets));
+    $tweetsContainer.prepend(createTweetElement(tweets));
   }
 };
 
 //CREATE TWEET ELEMENT
 
-//escape function takes care of cross-side scripting
+//takes care of cross-side scripting
 const escape = (str) => {
   const div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -63,7 +64,7 @@ const printError = message => {
 
 //REQUESTS
 
-//fetching the latest tweet
+//getting the latest tweet
 const addTweet = () => {
   $.ajax({
     url: '/tweets',
@@ -74,7 +75,7 @@ const addTweet = () => {
   });
 };
 
-//fetching tweets from '/tweets'
+//getting tweets from '/tweets'
 const loadTweets = async () => {
   const response = await $.ajax({
     url: '/tweets',
@@ -84,17 +85,14 @@ const loadTweets = async () => {
   renderTweets(response);
 };
 
-
 $('form').submit(function (event) {
   event.preventDefault();
   const text = $('.tweet-text').val();
-
+  
   if (!text) {
     printError("Tweet cannot be left blank");
-
   } else if (text.length > 140) {
     printError("Tweet cannot be more than 140 characters long");
-
   } else {
     if ($('p').hasClass('error')) {
       $('.error').slideUp();
@@ -102,15 +100,8 @@ $('form').submit(function (event) {
     $.ajax('/tweets', { method: 'POST', data: $('.tweet-text').serialize() })
       .then(() => addTweet());
     $('textarea').val('');
-    $('textarea').keyup()
+    $('textarea').keyup();
   }
 });
 
 loadTweets();
-
-
-//NAV ARROW
-$('.arrow').on('click', () => {
-  $('.new-tweet').slideToggle();
-  $('.tweet-text').focus();
-});
