@@ -7,7 +7,6 @@
 //FUNCTIONS
 
 const renderTweets = (tweets) => {
-  console.log(tweets);
   if (Array.isArray(tweets)) {
     for (let item of tweets) {
       const $tweetElement = createTweetElement(item);
@@ -88,13 +87,13 @@ const loadTweets = async () => {
 
 $('form').submit(function (event) {
   event.preventDefault();
-  const text = $('textarea').val();
+  const text = $('.tweet-text').val();
 
   if (!text) {
-    printError("Error: tweet cannot be left blank");
+    printError("Tweet cannot be left blank");
 
   } else if (text.length > 140) {
-    printError("Error: tweet cannot be more than 140 characters long");
+    printError("Tweet cannot be more than 140 characters long");
 
   } else {
     if ($('p').hasClass('error')) {
@@ -109,26 +108,9 @@ $('form').submit(function (event) {
 
 loadTweets();
 
-//SCROLL UP BUTTON
+
+//NAV ARROW
 $('.arrow').on('click', () => {
   $('.new-tweet').slideToggle();
-});
-
-$('#move-to-top-arrow').on('click', () => {
-  $('.new-tweet').slideDown();
-  $('html, body').animate({ scrollTop: 0 }, 100);
-});
-
-$(document).scroll(function () {
-  const $writeTweet = $('.write-tweet');
-  const $toTopArrow = $('#move-to-top-arrow')
-  var y = $(this).scrollTop();
-  if (y > 200) {
-    $toTopArrow.fadeIn();
-    $writeTweet.hide();
-  } else {
-    $toTopArrow.fadeOut();
-    $writeTweet.show();
-    $writeTweet.select();
-  }
+  $('.tweet-text').focus();
 });

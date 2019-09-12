@@ -44,12 +44,18 @@
 .tweet .action-icons {
   color: #383fa8;
   word-spacing: 10px;
+  display: none;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px #b5b4d9;
 }
 
 .tweet:hover .handle {
   display: flex;
 }
 
-.tweet:hover {
-  box-shadow: 10px 10px #b5b4d9;
+
+.tweet:hover .action-icons {
+  display: inline;
 }

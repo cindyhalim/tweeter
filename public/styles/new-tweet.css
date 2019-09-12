@@ -1,5 +1,6 @@
 .new-tweet {
   margin: 3em 0;
+  display: none;
 }
 .new-tweet textarea {
   font-weight: bold;
@@ -25,6 +26,7 @@
   margin-top: 1em;
   padding: 5px 10px;
   color: white;
+  cursor: pointer;
 }
 
 .new-tweet .counter {
